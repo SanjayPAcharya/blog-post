@@ -26,5 +26,6 @@ export class AppComponent implements OnInit {
 
   clear() {
     this.commentService.store_In_LocalStorage(null);
+    this.comments = [];
   }
 }
