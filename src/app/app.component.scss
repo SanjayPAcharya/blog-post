@@ -15,3 +15,22 @@
         }
     }
 }
+.reset {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #f19c00;
+    border: none;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
+    &:focus {
+        outline: none;
+    }
+}
