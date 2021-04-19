@@ -10,3 +10,4 @@
     <app-comment [comment]="comments" [rootNode]="true" (saveToParent)="addComment($event)" (updateServiceStore)="updateStore()"></app-comment>
   </div>
 </div>
+<button class="reset" (click)="clear()">Reset Comments</button>
