@@ -1,0 +1,89 @@
+.cWrap {
+    display: inline-flex;
+    width: 100%;
+    padding-top: 15px;
+    .usrImg {
+        width: fit-content;
+        img {
+            border-radius: 6px;
+        }
+    }
+    .comment {
+        display: grid;
+        padding: 0px 10px;
+        grid-template-rows: 26px auto;
+        width: 100%;
+        .hdr {
+            .user {
+                font-size: 16px;
+                font-weight: 900;
+                color: #4a4848;
+            }
+            .timeStamp {
+                color: #b0aeae;
+                font-size: 11px;
+                font-weight: 600;
+                padding-left: 10px;
+            }
+            .btn-icon {
+                background: transparent;
+                border: none;
+                padding: 0px 12px;
+                font-size: 12px;
+                cursor: pointer;
+                &.up {
+                    color: #b179e6;
+                }
+                &.down {
+                    color: #ef7373;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        .btn-link {
+            width: fit-content;
+            background: none;
+            border: none;
+            padding: 6px 0px 10px 0px;
+            font-size: 12px;
+            color: #4e4eff;
+            font-weight: 500;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.reply {
+    width: 100%;
+    .editor {
+        display: flex;
+        width: 100%;
+        flex-flow: column;
+        textarea {
+            width: 100%;
+            border: solid 2px;
+            border-color: lightgray;
+        }
+        .btn {
+            cursor: pointer;
+            float: right;
+            place-self: flex-end;
+            background: #2084cf;
+            width: auto;
+            padding: 5px 12px;
+            border-radius: 6px;
+            color: white;
+            margin: 12px -6px;
+            font-weight: bold;
+            border: none;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

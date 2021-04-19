@@ -1,0 +1,17 @@
+.post {
+    width: 60%;
+    margin: auto;
+    p {
+        font-size: 16px;
+    }
+    .commenter {
+        .hdr {
+            padding: 10px 0px;
+            label {
+                font-size: 14px;
+                font-weight: 600;
+                color: lightslategray;
+            }
+        }
+    }
+}

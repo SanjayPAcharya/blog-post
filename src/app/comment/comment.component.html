@@ -1,0 +1,36 @@
+
+<div class="cWrap" *ngFor="let cmt of comment; let i = index;">
+    <div class="usrImg">
+        <img [src]="avtar" height="40" width="40">
+    </div>
+    <div class="comment">
+        <div class="hdr">
+            <label class="user"> {{ cmt.author}} </label>
+            <span class="timeStamp"> {{ cmt.time }} </span>
+            <button class="btn-icon up" (click)="onLike(cmt)">
+                Like<span> ({{cmt.likes}})</span>
+            </button>
+            <button class="btn-icon down" (click)="onDisLike(cmt)">
+                Dislike<span> ({{cmt.dislikes}})</span>
+            </button>
+       </div>
+        <p> {{ cmt.text}} </p>
+        <button class="btn-link" (click)="openReplyWindow(cmt)">Reply</button>
+        <div class="reply" *ngIf="cmt.enableReplyBox">
+            <div class="editor">
+                <textarea #textar rows="5" name="text"></textarea>
+                <button class="btn" (click)="saveUnderNode(cmt, textar.value)">Save</button>
+            </div>
+        </div>
+        <ng-container *ngIf="cmt.replies.length">
+            <app-comment (updateServiceStore)="updateStore()" [comment]="cmt.replies" [rootNode]="false" (saveToParent)="addComment($event)"></app-comment>
+        </ng-container>
+    </div>
+</div>
+<div class="reply" *ngIf="rootNode">
+    <div class="editor">
+        <textarea #textarea rows="5" name="text"></textarea>
+        <span>{{textarea.value}}</span>
+        <button class="btn" (click)="onComment(textarea)">Comment</button>
+    </div>
+</div>
