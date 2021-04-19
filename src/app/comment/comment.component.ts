@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Comment, CommentService } from 'src/services/comment.service';
 import { AvatarGenerator } from 'random-avatar-generator';
 
@@ -14,7 +14,8 @@ export class CommentComponent implements OnInit {
   @Output('saveToParent') saveToParent = new EventEmitter<any>();
   @Output('updateServiceStore') updateServiceStore = new EventEmitter<any>();
 
-  @ViewChild('textarea') textarea: HTMLTextAreaElement;
+  @ViewChild('textarea') textarea: any;
+  @ViewChild('replyArea') replyArea: any;
 
   avtar: string;
   generator: any;
@@ -28,6 +29,9 @@ export class CommentComponent implements OnInit {
 
   openReplyWindow(block) {
     block.enableReplyBox = true;
+    setTimeout(() => {
+      this.replyArea.nativeElement.focus();
+    }, 100);
   }
 
   saveUnderNode(block, val) {
@@ -63,6 +67,10 @@ export class CommentComponent implements OnInit {
   onDisLike(block) {
     if (!block.disliked) {
       ++block.dislikes;
+      if (block.liked) {
+        --block.likes;
+        block.liked = false;
+      };
       block.disliked = true;
     };
     this.updateStore();
@@ -71,6 +79,10 @@ export class CommentComponent implements OnInit {
   onLike(block) {
     if (!block.liked) {
       ++block.likes;
+      if (block.disliked) {
+        --block.dislikes;
+        block.disliked = false;
+      };
       block.liked = true;
     }
     this.updateStore();
