@@ -7,17 +7,24 @@
         img {
             border-radius: 6px;
         }
+        .liner {
+            height: calc(100% - 67px);
+            margin: 48%;
+            width: 0.1rem;
+            background-color: gray;
+            opacity: 0.2;
+        }
     }
     .comment {
         display: grid;
         padding: 0px 10px;
-        grid-template-rows: 26px auto;
+        grid-template-rows: 18px auto;
         width: 100%;
         .hdr {
             .user {
-                font-size: 16px;
-                font-weight: 900;
-                color: #4a4848;
+                font-size: 14px;
+                font-weight: 600;
+                color: #656565;
             }
             .timeStamp {
                 color: #b0aeae;
@@ -54,6 +61,9 @@
             &:focus {
                 outline: none;
             }
+        }
+        p {
+            font-size: 12px;
         }
     }
 }
